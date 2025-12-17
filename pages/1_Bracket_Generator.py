@@ -21,7 +21,7 @@ power = default_power | weights
 
 col1, col2, col3, col4 = st.columns([1, 1, 1, 2])
 with col1:
-    use_seed = st.toggle("Use reproducible seed", value=True)
+    use_seed = st.toggle("Use reproducible seed", value=False)
 with col2:
     seed = st.number_input(
         "Seed",
