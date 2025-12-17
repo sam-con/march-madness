@@ -1,0 +1,65 @@
+team,region,seed,power
+Auburn,South,1,0.677419355
+Michigan St,South,2,0.416666667
+Iowa State,South,3,0.3125
+Texas A&M,South,4,0.133333333
+Michigan,South,5,0.095238095
+Ole Miss,South,6,0.166666667
+Marquette,South,7,0.166666667
+Louisville,South,8,0.142857143
+Creighton,South,9,0.105263158
+New Mexico,South,10,0.105263158
+North Carolina,South,11,0.1
+UC San Diego,South,12,0.076923077
+Yale,South,13,0.019607843
+Lipscomb,South,14,0.012345679
+Bryant,South,15,0.019607843
+Alabama St,South,16,0.006622517
+Florida,West,1,0.705882353
+St. John's,West,2,0.322580645
+Texas Tech,West,3,0.425531915
+Maryland,West,4,0.217391304
+Memphis,West,5,0.047619048
+Missouri,West,6,0.166666667
+Kansas,West,7,0.153846154
+Uconn,West,8,0.105263158
+Oklahoma,West,9,0.0625
+Arkansas,West,10,0.090909091
+Drake,West,11,0.0625
+Colorado St,West,12,0.0625
+Grand Canyon,West,13,0.012345679
+UNC Wilmington,West,14,0.00990099
+Omaha,West,15,0.00990099
+Norfolk St,West,16,0.006622517
+Duke,East,1,0.736842105
+Alabama,East,2,0.454545455
+Wisconsin,East,3,0.25
+Arizona,East,4,0.181818182
+Oregon,East,5,0.071428571
+BYU,East,6,0.19047619
+Saint Mary's,East,7,0.166666667
+Mississippi St,East,8,0.1
+Baylor,East,9,0.090909091
+Vanderbilt,East,10,0.0625
+VCU,East,11,0.1
+Liberty,East,12,0.032258065
+Akron,East,13,0.00990099
+Montana,East,14,0.00990099
+Robert Morris,East,15,0.006622517
+Mount St Mary's,East,16,0.006622517
+Houston,Midwest,1,0.591836735
+Tennessee,Midwest,2,0.5
+Kentucky,Midwest,3,0.217391304
+Purdue,Midwest,4,0.133333333
+Clemson,Midwest,5,0.133333333
+Illinois,Midwest,6,0.173913043
+UCLA,Midwest,7,0.153846154
+Gonzaga,Midwest,8,0.19047619
+Georgia,Midwest,9,0.090909091
+Utah St,Midwest,10,0.032258065
+Xavier,Midwest,11,0.0625
+McNeese,Midwest,12,0.0625
+High Point,Midwest,13,0.00990099
+Troy,Midwest,14,0.00990099
+Wofford,Midwest,15,0.00990099
+SIU Edwardsville,Midwest,16,0.006622517
