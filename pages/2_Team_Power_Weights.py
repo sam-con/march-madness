@@ -1,41 +1,41 @@
-import pandas as pd
 import streamlit as st
-from lib.storage import load_weights, save_weights
 
 st.set_page_config(page_title="Team Power Weights", layout="wide")
-st.title("⚙️ Team Power Weights")
+st.title("⚙️ Team Power Weights (Session Only)")
 
-uploaded = st.file_uploader("Upload the same teams CSV (team, power)", type=["csv"], key="weights_upload")
-if uploaded is None:
-    st.info("Upload teams CSV so we know which teams to show sliders for.")
+df = st.session_state.get("teams_df")
+defaults = st.session_state.get("defaults", {})
+weights = st.session_state.get("weights", {})
+
+if df is None:
+    st.info("Go to **Bracket Generator** and upload your teams CSV first.")
     st.stop()
-
-df = pd.read_csv(uploaded)
-df.columns = [c.lower() for c in df.columns]
-if "team" not in df.columns or "power" not in df.columns:
-    st.error("CSV must include at least `team` and `power` columns.")
-    st.stop()
-
-saved = load_weights()
 
 query = st.text_input("Search team", value="")
 teams = df["team"].tolist()
 if query.strip():
     teams = [t for t in teams if query.lower() in t.lower()]
 
-st.caption("These sliders override the uploaded `power` values when generating a bracket.")
+st.caption("Slider values override the uploaded `power` values for this session only.")
 
-weights = {}
+# A nice UX pattern: update weights live as sliders move
 for team in teams:
-    base = float(saved.get(team, float(df.loc[df["team"] == team, "power"].iloc[0])))
-    weights[team] = st.slider(team, min_value=0.0, max_value=1.0, value=float(base), step=0.001)
+    base = float(weights.get(team, defaults.get(team, 0.5)))
+    new_val = st.slider(team, min_value=0.0, max_value=1.0, value=float(base), step=0.001)
+    weights[team] = float(new_val)
 
-c1, c2 = st.columns(2)
+st.session_state["weights"] = weights
+
+c1, c2, c3 = st.columns([1, 1, 2])
 with c1:
-    if st.button("💾 Save weights", type="primary"):
-        save_weights(weights)
-        st.success("Saved weights to data/weights.json")
+    if st.button("↩️ Reset ALL to uploaded defaults"):
+        st.session_state["weights"] = {}
+        st.success("All overrides cleared (session).")
+
 with c2:
-    if st.button("↩️ Reset to uploaded defaults"):
-        save_weights({})
-        st.success("Cleared saved weights.")
+    if st.button("🧹 Clear bracket (if generated)"):
+        st.session_state["rounds"] = None
+        st.success("Bracket cleared. Generate again to apply weights.")
+
+with c3:
+    st.caption(f"Overrides currently set: {sum(1 for t in weights if t in defaults and weights[t] != defaults[t])}")
